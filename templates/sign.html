@@ -5,11 +5,11 @@
 <p>Please provide the following information in order to run the SMC protocol.</p>
 
 <form action="#" method="post">
-    <p>Number of private key shares:</p>
-    <p><input type="text" name="nOfPart" /></p>
-    <p>Threshold (number of malicious parties):</p>
-    <p><input type="text" name="t" /></p>
-	<p><input type="submit" value="Generate"/></p>
+    <p>Private key shares to sign:</p>
+    <p><input type="text" name="sks" /></p>
+    <p>Message:</p>
+    <p><input type="text" name="msg" /></p>
+	<p><input type="submit" value="Sign"/></p>
 </form>
 
 {% endblock %}

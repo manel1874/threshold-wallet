@@ -43,11 +43,12 @@ def run_keygen():
         mng_process.kill()
 
         # Get public key
-        pk = aux.getPK(int(nOfPart))
+        _ , pk = aux.getPK(int(nOfPart))
 
-        yay = "yay"
+        # Get wallet address
+        addr = aux.pkToAddr(pk)
 
-        return render_template("keygen_result.html", tree=yay, nOfShares=nOfPart, threshold=t, publicKey=pk)
+        return render_template("keygen_result.html", nOfShares=nOfPart, threshold=t, publicKey=pk, address=addr)
     else:
         return render_template("keygen.html")
 
@@ -70,7 +71,7 @@ def run_sign():
         sks_list = ast.literal_eval("["+sks+"]")
 
         for i in sks_list:
-            cmd_party_i = path+"/gg20_signing -p "+sks+" -d "+msg+" -l local-share"+str(i)+".json > signature/signature"+str(i)+".json"
+            cmd_party_i = path+"/gg20_signing -p "+sks+" -d "+msg+" -l sks/local-share"+str(i)+".json > signature/signature"+str(i)+".json"
             process = subprocess.Popen(cmd_party_i, shell=True)
             time.sleep(1)
             processes.append(process)
@@ -78,11 +79,9 @@ def run_sign():
         output = [p.wait() for p in processes]
         mng_process.kill()
 
-        #print(output)
+        signature = aux.getSign()
 
-        yay = "yay"
-
-        return render_template("sign_result.html", tree=yay)
+        return render_template("sign_result.html", sign=signature)
     else:
         return render_template("sign.html")
 

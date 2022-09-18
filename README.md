@@ -13,3 +13,8 @@ pip install Flask
 3. 
 
 
+libraries to install
+
+pip install pycryptodome
+pycoin
+nummaster

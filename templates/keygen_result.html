@@ -2,10 +2,15 @@
 {% block title %}QSMC Aveiro Intro{% endblock %}
 {% block content %}
 <h1>Private key generation</h1>
-<p>Well done! You successfully generated {{nOfShares}} private keys shares with a threshold of {{threshold}} shares.</p>
+<p>Well done! You successfully generated {{nOfShares}} private keys shares with a threshold of {{threshold}} share(s).</p>
 <p></p>
-<p>The private keys are saved into the <code>sks</code> folder with the following name format: <code>local-sharei.json</code> for <em>i</em> &le; <em>n</em>. </p>
-<p>{{tree}}</p>
+<p>The private keys are saved into the <code>sks</code> folder with the following name format: <code>local-sharei.json</code> for <em>i</em> &le; <em>n</em>.</p>
+<p></p>
+<p>Your public key is:</p>
+<p>{{publicKey}}</p>
+<p></p>
+<p>Your wallet address is:</p>
+<p>{{address}}</p>
 <p>Go to <a href="http://etetoolkit.org/treeview/">ETE toolkit website</a> for a nice tree visualization.</p>
 
 

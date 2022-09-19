@@ -81,7 +81,7 @@ def run_sign():
 
         signature = aux.getSign()
 
-        return render_template("sign_result.html", sign=signature)
+        return render_template("sign_result.html", sign=signature, msg=msg)
     else:
         return render_template("sign.html")
 

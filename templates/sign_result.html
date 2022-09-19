@@ -1,10 +1,12 @@
 {% extends "base.html" %}
 {% block title %}QSMC Aveiro Intro{% endblock %}
 {% block content %}
-<h1>Quantum Secure Multiparty Computation for Genome studies</h1>
-<p>Well done! The SMC protocol was successfully executed. Check below the result:</p>
+<h1>Signature generation</h1>
+<p>The message you typed is:</p>
+<p>{{msg}}</p>
+<p>Your signature is:</p>
 <p>{{sign}}</p>
-<p>Go to <a href="https://etherscan.io/verifiedSignatures">ETE toolkit website</a> for a nice tree visualization.</p>
+<p>Go to <a href="https://etherscan.io/verifiedSignatures">Etherscan website</a> to verify your signature.</p>
 
 
 {% endblock %}

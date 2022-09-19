@@ -37,9 +37,10 @@ pip install pycryptodome pycoin nummaster Flask==1.1.4
 
 # Run prototype
 
-Inside the threshold-wallet main folder run:
+- Inside the threshold-wallet main folder run:
 ```
 python webapp.py
 ```
 
+- Open your browser at http://127.0.0.1:5000/
 

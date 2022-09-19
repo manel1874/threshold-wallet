@@ -24,15 +24,20 @@ secp256k1 = Generator(_p, _a, _b, (_Gx, _Gy), _r)
 def getPK(nOfShares):
     # Sum all public key shares
 
-
+    
     with open("sks/local-share1.json", "r") as f:
         local_share = json.load(f)
-        y_point = local_share['keys_linear']['y']['point']
+        y_point = local_share['y_sum_s']['point']
+        #y_point = local_share['keys_linear']['y']['point']
     
     x_yPoint, y_yPoint = uncompress_key(secp256k1, format_point(y_point))
+    public_key = secp256k1.Point(x_yPoint, y_yPoint)
 
+    """
+    print("Point Y\n")
     print(x_yPoint, y_yPoint)
     print(hex(x_yPoint), hex(y_yPoint))
+    
 
     pk_vec = parse_pk_vec("sks/local-share1.json")
     pk_vec_0_point = pk_vec[0]["point"]
@@ -47,14 +52,19 @@ def getPK(nOfShares):
 
         public_key = secp256k1.add(public_key, i_point)
 
-    #Gen = secp256k1
-    #other_pub = (, 155495596836202816797655827683372320298316051115419340788855808592089936756180)
-
     pk_x = public_key[0]
     pk_y = public_key[1]
 
-    hex_pk_x = hex(pk_x)
-    hex_pk_y = hex(pk_y)
+    print("Point PK\n")
+    print(pk_x, pk_y)
+    print(hex(pk_x), hex(pk_y))
+
+    """
+
+    #hex_pk_x = hex(pk_x)
+    #hex_pk_y = hex(pk_y)
+    hex_pk_x = hex(x_yPoint)
+    hex_pk_y = hex(y_yPoint)
 
     # Concatenate
     hex_pk = "04"+hex_pk_x[2:]+hex_pk_y[2:]
@@ -62,6 +72,7 @@ def getPK(nOfShares):
     public_key_int = public_key
     public_key_hex = hex_pk
     return public_key_int, public_key_hex
+
 
 def pkToAddr(public_key):
 

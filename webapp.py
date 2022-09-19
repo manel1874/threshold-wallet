@@ -58,7 +58,7 @@ def run_sign():
     if request.method == "POST":
         sks = request.form["sks"]
         msg = request.form["msg"]
-        
+
         path = "../multi-party-ecdsa/target/release/examples"
         
         processes = []

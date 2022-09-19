@@ -2,11 +2,10 @@
 This is a simple prototype of an Ethereum crypto wallet that uses [ZenGo-X implementation](https://github.com/ZenGo-X/multi-party-ecdsa) of {t,n}-Threshold ECDSA based on the [GG20](https://eprint.iacr.org/2020/540.pdf) algorithm. We point to their [Binance academy article](https://www.binance.vision/security/threshold-signatures-explained) for an exmplanation of threshold signatures.
 
 The prototype has the following features:
-\begin{enumerate}
-    \item For every wallet, n key shares are generated.
-    \item Any n-t out of the n shares can sign a transaction.
-    \item A private key is never generated to create a new wallet.
-    \item The private key doesn’t need to be reconstructed to sign a transaction.
+- For every wallet, n key shares are generated.
+- Any n-t out of the n shares can sign a transaction.
+- A private key is never generated to create a new wallet.
+- The private key doesn’t need to be reconstructed to sign a transaction.
 \end{enumerate}
 
 

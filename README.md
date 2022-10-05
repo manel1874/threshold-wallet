@@ -16,7 +16,13 @@ The prototype has the following features:
 
 - Install [Rust](https://rustup.rs/)
 - Install [GMP](https://gmplib.org/) library (optionally)
-- Build the project:
+- Clone the repo from narayanprusty fork
+ 
+```
+git clone https://github.com/narayanprusty/multi-party-ecdsa.git
+```
+
+- Build the project
 
 ```
 cargo build --release --examples

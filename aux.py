@@ -27,11 +27,11 @@ def getPK(nOfShares):
     
     with open("sks/local-share1.json", "r") as f:
         local_share = json.load(f)
-        y_point = local_share['y_sum_s']['point']
-        #y_point = local_share['keys_linear']['y']['point']
+        #y_point = local_share['y_sum_s']['point']
+        y_point = local_share['keys_linear']['y']['point']
     
     x_yPoint, y_yPoint = uncompress_key(secp256k1, format_point(y_point))
-    public_key = secp256k1.Point(x_yPoint, y_yPoint)
+    #public_key = secp256k1.Point(x_yPoint, y_yPoint)
 
     """
     print("Point Y\n")
@@ -69,9 +69,10 @@ def getPK(nOfShares):
     # Concatenate
     hex_pk = "04"+hex_pk_x[2:]+hex_pk_y[2:]
 
-    public_key_int = public_key
+    #public_key_int = public_key
     public_key_hex = hex_pk
-    return public_key_int, public_key_hex
+    #return public_key_int, public_key_hex
+    return public_key_hex
 
 
 def pkToAddr(public_key):

@@ -4,6 +4,7 @@ import time
 import ast
 import aux
 from flask import Flask, render_template, request
+from Crypto.Hash import keccak
 
 app = Flask(__name__)
 
@@ -43,7 +44,7 @@ def run_keygen():
         mng_process.kill()
 
         # Get public key
-        _ , pk = aux.getPK(int(nOfPart))
+        pk = aux.getPK(int(nOfPart))
 
         # Get wallet address
         addr = aux.pkToAddr(pk)
@@ -59,6 +60,12 @@ def run_sign():
         sks = request.form["sks"]
         msg = request.form["msg"]
 
+        # Hash message with keccak256
+        msg_bytes = msg.encode("utf8")
+        keccak_hash = keccak.new(digest_bits=256)
+        keccak_hash.update(msg_bytes)
+        keccak_msg = keccak_hash.hexdigest()
+
         path = "../multi-party-ecdsa/target/release/examples"
         
         processes = []
@@ -71,7 +78,7 @@ def run_sign():
         sks_list = ast.literal_eval("["+sks+"]")
 
         for i in sks_list:
-            cmd_party_i = path+"/gg20_signing -p "+sks+" -d "+msg+" -l sks/local-share"+str(i)+".json > signature/signature"+str(i)+".json"
+            cmd_party_i = path+"/gg20_signing -p "+sks+" -d "+keccak_msg+" -l sks/local-share"+str(i)+".json > signature/signature"+str(i)+".json"
             process = subprocess.Popen(cmd_party_i, shell=True)
             time.sleep(1)
             processes.append(process)

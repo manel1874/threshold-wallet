@@ -232,3 +232,10 @@ print("Signature: r=" + hex(my_sig[0]) + ", s=" + hex(my_sig[1]))
 for pk in recoveredPubKeys:
     print("Recovered public key from signature: (" +
           hex(pk[0]) + ", " + hex(pk[1]) + ")")
+
+
+
+#keccak_hash = keccak.new(digest_bits=256)
+#keccak_hash.update("hello")
+#keccak_digest = keccak_hash.hexdigest()
+#print(keccak)

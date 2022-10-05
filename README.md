@@ -16,10 +16,10 @@ The prototype has the following features:
 
 - Install [Rust](https://rustup.rs/)
 - Install [GMP](https://gmplib.org/) library (optionally)
-- Clone the repo from narayanprusty fork
+- Clone the repo from manel1874 fork. (Note: this takes into account the updates by narayanprusty)
  
 ```
-git clone https://github.com/narayanprusty/multi-party-ecdsa.git
+git clone https://github.com/manel1874/multi-party-ecdsa.git
 ```
 
 - Build the project
